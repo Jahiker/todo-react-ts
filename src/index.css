@@ -11,3 +11,11 @@
 html {
   font-family: "Poppins", sans-serif;
 }
+
+.Title_1 {
+  @apply mb-10 font-bold text-center uppercase text-2xl
+}
+
+.Title_2 {
+  @apply mb-5 font-bold uppercase
+}

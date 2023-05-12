@@ -1,36 +1,22 @@
 import { useReducer } from "react";
-import { Todo } from "./ToDo/todo.model";
-import { TodoDto } from "./ToDo/todo.dto";
+import { reducer } from "./ToDo/todoReducer";
 
-export enum ActionType {
-  ADD = 'ADD',
-  REMOVE = 'REMOVE',
-  TOGGLE = 'TOGGLE',
-  EDIT = 'EDIT'
-}
-
-interface Action {
-  type: ActionType,
-  payload: TodoDto
-}
-
-const reducer = (todoList: Todo[], action: Action) => {
-  switch (action.type) {
-    case ActionType.ADD:
-      throw new Error('ADD')
-      break;
-  
-    default:
-      return todoList
-  }
-}
+import { TodoList, AddTodo } from "./components";
 
 function App(): JSX.Element {
   const [todoList, dispatch] = useReducer(reducer, []);
 
   return (
     <div className="p-[40px]">
-      <h1 className="uppercase text-center font-bold">ToDo App</h1>
+      <h1 className="Title_1">ToDo App</h1>
+      <div className="grid grid-cols-3 gap-5">
+        <div className="col-span-2 p-4 border-2 rounded-xl">
+          <TodoList />
+        </div>
+        <div className="p-4 border-2 rounded-xl">
+          <AddTodo />
+        </div>
+      </div>
     </div>
   );
 }

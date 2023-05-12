@@ -9,4 +9,3 @@ export interface Todo {
     endDate: Date;
     status: Status
 }
-
