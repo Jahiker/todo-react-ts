@@ -1,12 +1,19 @@
+import { FormEventHandler } from "react";
 import { UseForm } from "../hooks/UseForm";
 
-export const AddTodo = () => {
+export const AddTodo = ({handleAddTodo}) => {
     const {handleInputChange, formState} = UseForm()
+
+    const handleSubmit: FormEventHandler = (e) => {
+      e.preventDefault()
+      console.log(formState)
+      e.currentTarget.reset()
+    }
 
   return (
     <div>
       <h2 className="Title_2">Add a new ToDo</h2>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <label className="flex flex-col mb-3">
           <span>Title</span>
           <input

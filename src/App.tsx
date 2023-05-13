@@ -1,11 +1,8 @@
-import { useReducer } from "react";
-import { reducer } from "./ToDo/todoReducer";
-
 import { TodoList, AddTodo } from "./components";
+import { UseTodo } from "./hooks/UseTodo";
 
 function App(): JSX.Element {
-  const [todoList, dispatch] = useReducer(reducer, []);
-
+  const {handleAddTodo} = UseTodo();
   return (
     <div className="p-[40px]">
       <h1 className="Title_1">ToDo App</h1>
@@ -14,7 +11,7 @@ function App(): JSX.Element {
           <TodoList />
         </div>
         <div className="p-4 border-2 rounded-xl">
-          <AddTodo />
+          <AddTodo handleAddTodo={handleAddTodo} />
         </div>
       </div>
     </div>
